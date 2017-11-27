@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app1">
   <head id="head">
     <meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +8,54 @@
   	<meta name="theme-color" content="#E6E9ED">
   	<title>FTP Webpage Sample</title>
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <div>
-      <form id="loginInfo">
-        <fieldset>
-          <legend>User Information</legend>
-          Username:
-          <input type="text" name="username" />
-          <br />
-          Password:
-          <input type="password" name="password" />
-          <br />
-          <button type="submit" id="login">Sign In</button>
-          <button type="button" id="cancel">Cancel</button>
-        </fieldset>
-      </form>
+    <div class="main-form" ng-controller="ctrl">
+      <div>
+        <form id="loginForm" name="loginInfo">
+          <table>
+            <tr>
+              <td colspan="2" align="center">
+                <b>LogIn to Fizz FTP</b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Username
+              </td>
+              <td>
+                <input type="text" ng-model="username" required />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Password
+              </td>
+              <td>
+                <input type="password" ng-model="password" required />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <button type="button" ng-click="getUserInfo()" ng-disabled="loginInfo.$invalid">Sign In</button>
+                <button type="button" ng-click="cancel()">Cancel</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <br />
+      <div id="panel" class="panel panel-default">
+        <div class="panel-body">
+          {{ftpsite}}
+        </div>
+      </div>
+
+
     </div>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script src="connection.js"></script>

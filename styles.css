@@ -1,0 +1,28 @@
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
+
+.main-form {
+  position: absolute;
+  margin: 100px auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+}
+
+div {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+button {
+  margin: 5px;
+}
+
+td {
+  padding: 5px;
+}
